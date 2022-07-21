@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="with=device-width, initial-scale = 1.0">
+    <!--<link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/page_style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/alerts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/navbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/content.css') }}">
+    {% block specific_stylesheet %}
+    {% endblock %}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,500;0,700;1,300&display=swap" rel="stylesheet">
+
+    {% if title %}
+        <title>Feuerwehr Sontheim - {{ title }}</title>
+    {% else %}
+        <title>Feuerwehr Sontheim</title>
+    {% endif %}
+</head>
+
+<!----------------------------------------------------------------------------------------------------------------------------------->
+
+<body>
+<!-- display nav -->
+    {% include url_for(filename='basecomponents/desktop_nav.html') %}
+
+
+    <!-- content -->
+
+    {% block content %}
+    {% endblock %}
+
+
+    <!-- -->
+
+    {% block scripts %}
+    {% endblock %}
+
+
+
+    <!-- flash messages here -->
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="alert" id="hideMe">
+            {% for category, message in messages %}
+                <div class=" alert_{{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+
+</body>
+</html>

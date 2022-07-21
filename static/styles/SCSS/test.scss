@@ -1,0 +1,37 @@
+
+.blue-hex{
+    background-color: rgb(167, 184, 243);
+    height: 60px;
+    width: 100px;
+    position: absolute;
+}
+
+.support_left{
+    background-color: rgb(167, 184, 243);
+    transform: rotate(120deg);
+    width: 100px;
+    height: 60px;
+    position: absolute;
+}
+
+.support_right{
+    background-color: rgb(167, 184, 243);
+    transform: rotate(240deg);
+    width: 100px;
+    height: 60px;
+    position: absolute;
+}
+
+
+.clip-test{
+    --width: 100px;
+    --height: calc(var(--width)*0.866);
+    height: var(--height);
+    width: 100px;
+    background-color: red;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    align-content: center;
+    text-align: center;
+}
+
+
